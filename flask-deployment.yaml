@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-deployment       # Name of the deployment
+  labels:
+    app: flasktask                 # Labels for identifying the deployment
+spec:
+  replicas: 2                  # Number of replicas (pods) to deploy
+  selector:
+    matchLabels:
+      app: flasktask               # Selector to match the labels in the pod template
+  template:
+    metadata:
+      labels:
+        app: flasktask             # Labels for the pods created by this deployment
+    spec:
+      containers:
+      - name: flasktask
+        image: pranav8999/flask:1.0    # flask app  image to use
+        env:
+        - name: MONGODB_URI
+          value : "mongodb://admin:admin@mongo:27017/"
+
+        ports:
+        - containerPort: 5000    # Exposing port 5000 of the container
+        resources:
+         requests:
+          cpu: "200m"
+          memory: "250Mi"
+         limits:
+          cpu: "0.5"
+          memory: "500Mi"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: flasktask-svc-nodeport
+spec:
+  # Expose the service on a static port on each node
+  # so that we can access the service from outside the cluster
+  type: NodePort
+
+  # When the node receives a request on the static port (30007)
+  selector:
+    app: flasktask
+
+  ports:
+    # Three types of ports for a service
+    # nodePort - a static port assigned on each the node
+    # port - port exposed internally in the cluster
+    # targetPort - the container port to send requests to
+    - nodePort: 30163
+      port: 80
+      targetPort: 5000
