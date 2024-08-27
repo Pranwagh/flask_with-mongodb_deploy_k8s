@@ -19,12 +19,64 @@ Table of Contents
 	
 	2. Dockerfile 
 	• Read instruction to build and push Docker image file 
+ 	
+		Prerequisites
+		Before we begin, make sure you have the following installed:
+			• Docker
+			• Kubernetes (Minikube or a Kubernetes cluster)
+			• kubectl (Kubernetes command-line tool)
+			• Python 3.7+ and pip
+		
+		How to Set Up the Project ?
+		Basic directory structure
+		 Our application directory structure should look like this:
+		flask-docker
+		├── app.py
+		├── Dockerfile
+		├── requirements.txt
+		└── venv
+	
+		Step 1: Setting Up the Flask Application
+			• Create  mkdir app.py  & paste given code  and requirements.txt  
+		
+		Step 2: Dockerize the Flask Application
+			• Create a Dockerfile to containerize the Flask application:
+		
+		
+				FROM python:3.8-slim
+				RUN mkdir /app
+				WORKDIR /app
+				COPY src/ .
+				RUN pip install -r requirements.txt
+				 # Set environment variables for Flask
+				ENV FLASK_APP=app.py
+				ENV FLASK_ENV=development
+				EXPOSE 5000
+				CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+	
+		It's good practice to test your Docker image created correct or not by building image and running container .
+			• docker build -t flask-mongo-app .
+			• Docker images 
+			• docker run -d -p 5000:5000 --name my-flask-app -e MONGODB_URI="mongodb://localhost:27017/" flask-mongo-app
+		And then try to access public-ip: 5000 
+		
+		Sign in to docker hub
+		Login to docker from CLI using docker login command. Execute this command from a Shell or Terminal where docker is installed. 
+		
+			• docker login --username <>         # Enter password of dockerhub
+			
+		
+		Build and push your Docker image:
+		
+			• docker build -t your_dockerhub_username/<image_name>:version  .  # now build docker image from dockerfile with such name to directly push to dockerhub 
+		
+			• docker push your_dockerhub_username/<image_name>:version
+
 
 	3. Setup Minikube
 
 		○ minikube start
 		
-
 	4. Deploy Flask Application
 
 4.1 Write yml manifest file for flask deployment  , include in it following important components 
