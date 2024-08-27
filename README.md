@@ -330,9 +330,9 @@ Kubectl apply -f mongo-headless-service.yml
 
 
 Now to connect to Flask app deployment to mongo-db statefulset . 
-	• Flask app deployment YAML should specify the correct MongoDB service name in the environment variable. 
-	• MongoDB instance requires authentication, Flask application should give it in MONGO_URI .
-	• Ensure your Flask application code is reading the MONGO_URI environment variable correctly .
+• Flask app deployment YAML should specify the correct MongoDB service name in the environment variable. 
+• MongoDB instance requires authentication, Flask application should give it in MONGO_URI .
+• Ensure your Flask application code is reading the MONGO_URI environment variable correctly .
 
 
 
