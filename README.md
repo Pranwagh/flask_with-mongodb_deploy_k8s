@@ -10,6 +10,8 @@ Table of Contents
 6. Deploy MongoDB
 7. Resource Management & Horizontal Pod Autoscaler (HPA)
 
+
+
  1. Prerequisites
 	• Minikube installed and running
 	• kubectl CLI tool installed
