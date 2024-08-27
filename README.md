@@ -225,7 +225,7 @@ Apply the YAML :
 	    requests:
 	      storage: 300Mi
 	
-	6. Deploy MongoDB 
+6. Deploy MongoDB 
 
 6.1 Create a Secret for MongoDB Credentials:
 
