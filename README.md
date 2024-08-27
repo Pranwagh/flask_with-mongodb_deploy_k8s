@@ -1,12 +1,13 @@
 # flask_with-mongodb_deploy_k8s
 
 Table of Contents
-	1. Prerequisites
-	2. Write dockerfile and build and push
-	3. Setup Minikube
-	4. Deploy Flask Application
-	5. Create Persistent Volumes and Claims
-	6. Deploy MongoDB
+
+1. Prerequisites
+2. Write dockerfile and build and push
+3. Setup Minikube
+4. Deploy Flask Application
+5. Create Persistent Volumes and Claims
+6. Deploy MongoDB
 7. Resource Management & Horizontal Pod Autoscaler (HPA)
 
  1. Prerequisites
