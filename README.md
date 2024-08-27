@@ -12,7 +12,7 @@ Table of Contents
 
 
 
- 1. Prerequisites
+1. Prerequisites
 	• Minikube installed and running
 	• kubectl CLI tool installed
 	• Docker installed
