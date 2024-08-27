@@ -7,7 +7,7 @@ Table of Contents
 	4. Deploy Flask Application
 	5. Create Persistent Volumes and Claims
 	6. Deploy MongoDB
-	7. Resource Management & Horizontal Pod Autoscaler (HPA)
+7. Resource Management & Horizontal Pod Autoscaler (HPA)
 
  1. Prerequisites
 	• Minikube installed and running
